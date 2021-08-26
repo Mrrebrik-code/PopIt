@@ -5,11 +5,14 @@ using DG.Tweening;
 
 public class PopItHandler : MonoBehaviour
 {
+
 	[SerializeField] private Transform _popIt;
 	[SerializeField] private float _speedRotation;
 	private bool isRot = false;
+
 	public void RotationPopIt()
 	{
+
 		if (!isRot)
 		{
 			
