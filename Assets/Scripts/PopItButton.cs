@@ -8,10 +8,12 @@ public class PopItButton : MonoBehaviour
 	private bool _isPop = false;
 
 	private GameHandler _gameHandler;
+	private DisplayScoreHandler _displayScoreHandler;
 
 	private void Start()
 	{
 		_gameHandler = GameHandler.Instance;
+		_displayScoreHandler = DisplayScoreHandler.Instance;
 	}
 
 	private void OnMouseEnter()
@@ -31,6 +33,7 @@ public class PopItButton : MonoBehaviour
 	private void ButtonDown()
 	{
 		_gameHandler.BallDestroy(Id);
+		_displayScoreHandler.UpdateTextScore();
 		if (_isPop)
 		{
 			AudioHandler.Instance.PlaySound(TypeSounds.popOne);

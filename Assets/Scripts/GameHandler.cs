@@ -24,6 +24,7 @@ public class GameHandler : MonoBehaviour
 		}
 		if (!HasActiveBall())
 		{
+			DisplayScoreHandler.Instance.UpdateTextLevel();
 			foreach (var ball in BallsColor)
 			{
 				ball.ResetBall();
