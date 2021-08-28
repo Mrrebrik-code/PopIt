@@ -29,6 +29,7 @@ public class GameHandler : MonoBehaviour
 			{
 				ball.ResetBall();
 			}
+			YandexSDK.instance.ShowInterstitial();
 		}
 	}
 	private bool HasActiveBall()

@@ -10,6 +10,8 @@ public class PopItButton : MonoBehaviour
 	private GameHandler _gameHandler;
 	private DisplayScoreHandler _displayScoreHandler;
 
+	[SerializeField] private bool _isAd;
+
 	private void Start()
 	{
 		_gameHandler = GameHandler.Instance;
@@ -27,11 +29,16 @@ public class PopItButton : MonoBehaviour
 
 	private void OnMouseDown()
 	{
+		if (_isAd)
+		{
+			YandexSDK.instance.ShowInterstitial();
+		}
 		ButtonDown();
 	}
 
 	private void ButtonDown()
 	{
+
 		_gameHandler.BallDestroy(Id);
 		_displayScoreHandler.UpdateTextScore();
 		if (_isPop)
