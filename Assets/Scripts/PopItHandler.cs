@@ -12,7 +12,7 @@ public class PopItHandler : MonoBehaviour
 
 	public void RotationPopIt()
 	{
-		YandexSDK.instance.ShowInterstitial();
+		//YandexSDK.instance.ShowInterstitial();
 		if (!isRot)
 		{
 			
