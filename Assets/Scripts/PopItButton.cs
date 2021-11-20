@@ -8,8 +8,7 @@ public class PopItButton : MonoBehaviour
 	public int Id;
 	private bool _isPop = false;
 
-	private GameHandler _gameHandler;
-	private DisplayScoreHandler _displayScoreHandler;
+	[SerializeField] private GameHandler _gameHandler;
 	private MeshRenderer _meshRenderer;
 
 	public Action<PopItButton> onDownButton;
@@ -20,8 +19,6 @@ public class PopItButton : MonoBehaviour
 
 	private void Awake()
 	{
-		_gameHandler = GameHandler.Instance;
-		_displayScoreHandler = DisplayScoreHandler.Instance;
 		_meshRenderer = GetComponent<MeshRenderer>();
 	}
 
@@ -51,7 +48,7 @@ public class PopItButton : MonoBehaviour
 			if (_gameHandler != null)
 			{
 				_gameHandler.BallDestroy(Id);
-				_displayScoreHandler.UpdateTextScore();
+				DisplayScoreHandler.Instance.UpdateTextScore();
 			}
 			onDownButton?.Invoke(this);
 

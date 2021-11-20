@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,12 +13,20 @@ public class BrainHandler : MonoBehaviour
 	[SerializeField] private GameObject _gameOverPanel;
 	[SerializeField] private GameObject _bonusPanel;
 
+	[SerializeField] private TMP_Text _currentRoundText;
+	[SerializeField] private TMP_Text _currentCountBlinkText;
+
+	[SerializeField] private TMP_Text _money;
+
 	private void Awake()
 	{
 		foreach (var button in _buttonsPopit)
 		{
 			button.onDownButton += OnDownHandler;
 		}
+		_money.text = PlayerPrefs.GetInt("money").ToString();
+		_currentRoundText.text = "Текущий раунд: " + Round;
+		_currentCountBlinkText.text = "На память: " + _currentButtons.Count + "шт.";
 	}
 
 	private void OnDownHandler(PopItButton button)
@@ -32,16 +41,33 @@ public class BrainHandler : MonoBehaviour
 			{
 				buttonAll.IsDown = false;
 			}
+			if (Round > PlayerPrefs.GetInt("best_brain"))
+			{
+				PlayerPrefs.SetInt("best_brain", Round);
+			}
+			
 			_gameOverPanel.SetActive(true);
 		}
 		if(_currentButtons.Count == 0)
 		{
 			Round++;
+			_currentRoundText.text = "Текущий раунд: " + Round;
 			foreach (var buttonAll in _buttonsPopit)
 			{
 				buttonAll.IsDown = false;
 			}
 			_bonusPanel.SetActive(true);
+			if (PlayerPrefs.HasKey("money"))
+			{
+				var temp = PlayerPrefs.GetInt("money");
+				temp += 50;
+				PlayerPrefs.SetInt("money", temp);
+				_money.text = PlayerPrefs.GetInt("money").ToString();
+			}
+			else
+			{
+				PlayerPrefs.SetInt("money", 0);
+			}
 		}
 	}
 	public void Start()
@@ -84,6 +110,7 @@ public class BrainHandler : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.3f);
 		_currentButtons = RandomGenerationButtons();
+		_currentCountBlinkText.text = "На память: " + _currentButtons.Count + "шт.";
 		foreach (var button in _currentButtons)
 		{
 			button.Blink(_blinkMaterial);

@@ -4883,6 +4883,9 @@ MonoBehaviour:
   _blinkMaterial: {fileID: 2100000, guid: 71d49eddd3949504ba2c355b184378f3, type: 2}
   _gameOverPanel: {fileID: 330046364}
   _bonusPanel: {fileID: 34724418}
+  _currentRoundText: {fileID: 574105655}
+  _currentCountBlinkText: {fileID: 718210172}
+  _money: {fileID: 1661917462}
 --- !u!1001 &1989946037
 PrefabInstance:
   m_ObjectHideFlags: 0

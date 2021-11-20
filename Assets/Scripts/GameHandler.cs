@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum TypeGame
 {
@@ -17,6 +18,7 @@ public class GameHandler : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
+		SetGame(TypeGame.Classic);
 	}
 
 
@@ -54,5 +56,9 @@ public class GameHandler : MonoBehaviour
 			}
 		}
 		return false;
+	}
+	public void StartMenu()
+	{
+		SceneManager.LoadScene(0);
 	}
 }
