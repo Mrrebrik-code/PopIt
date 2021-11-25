@@ -77,7 +77,7 @@ public class BrainHandler : MonoBehaviour
 	public List<PopItButton> RandomGenerationButtons()
 	{
 		List<PopItButton> tempButtons = new List<PopItButton>();
-		var count = Random.Range(2, 6) + Round;
+		var count = Random.Range(1, 3) + Round;
 		if(count < _buttonsPopit.Count)
 		{
 			for (int i = 0; i < count; i++)
