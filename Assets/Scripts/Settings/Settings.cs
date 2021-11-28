@@ -40,6 +40,7 @@ public class Settings : MonoBehaviour
 
     public void Save()
     {
+        AudioHandler.Instance.PlaySound(TypeSounds.Tap);
         PlayerPrefs.SetFloat("sound", _soundValue);
         PlayerPrefs.SetFloat("music", _musicValue);
 

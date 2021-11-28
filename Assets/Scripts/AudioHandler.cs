@@ -5,7 +5,8 @@ using UnityEngine;
 public enum TypeSounds
 {
 	popOne,
-	popTwo
+	popTwo,
+	Tap
 }
 public class AudioHandler : MonoBehaviour
 {
