@@ -2514,6 +2514,7 @@ GameObject:
   - component: {fileID: 1084004480}
   - component: {fileID: 1084004482}
   - component: {fileID: 1084004483}
+  - component: {fileID: 1084004484}
   m_Layer: 5
   m_Name: Settnigs_btn
   m_TagString: Untagged
@@ -2644,6 +2645,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d7cc952e5664484eafbb2315810d948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1084004484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084004478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2aea412a83108408fd8ba4911f2998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1095636817
