@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
+	public static MenuHandler Instance;
 	[SerializeField] private TMP_Text _bestScoreBrainText;
 	[SerializeField] private TMP_Text _scoreMoneyText;
 
 	private void Awake()
 	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+
 		if (PlayerPrefs.HasKey("money"))
 		{
 			_scoreMoneyText.text = PlayerPrefs.GetInt("money").ToString();
@@ -34,5 +40,13 @@ public class MenuHandler : MonoBehaviour
 	public void StartGame(string nameScene)
 	{
 		SceneManager.LoadScene(nameScene);
+	}
+
+	public void UpdateMoney()
+    {
+		if (PlayerPrefs.HasKey("money"))
+		{
+			_scoreMoneyText.text = PlayerPrefs.GetInt("money").ToString();
+		}
 	}
 }
