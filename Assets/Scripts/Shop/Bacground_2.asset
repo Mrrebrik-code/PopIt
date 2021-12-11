@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: two
   _price: 150
-  _backgroundSprite: {fileID: 21300000, guid: 71ee3a471832ee041a944b560852887c, type: 3}
+  _backgroundSprite: {fileID: 21300000, guid: 876805ecb71087e4497c68d482c83378, type: 3}

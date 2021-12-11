@@ -44,6 +44,8 @@ public class Settings : MonoBehaviour
         PlayerPrefs.SetFloat("sound", _soundValue);
         PlayerPrefs.SetFloat("music", _musicValue);
 
+        PlayerPrefs.Save();
+
         DestroyImmediate(gameObject);
     }
 }

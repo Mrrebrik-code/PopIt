@@ -16,7 +16,22 @@ public class AudioHandler : MonoBehaviour
 
 	[SerializeField] private AudioClip[] _audios;
 
-    private void Start()
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+
+	}
+
+	private void Start()
     {
 
         if (PlayerPrefs.HasKey("sound"))
@@ -31,29 +46,16 @@ public class AudioHandler : MonoBehaviour
 
         if (PlayerPrefs.HasKey("music"))
         {
-			_musicSource.volume = PlayerPrefs.GetFloat("music");
+            _musicSource.volume = PlayerPrefs.GetFloat("music");
         }
-		else
-		{
-			_musicSource.volume = 10;
-			PlayerPrefs.SetFloat("music", 10);
-		}
-	}
+        else
+        {
+            _musicSource.volume = 10;
+            PlayerPrefs.SetFloat("music", 10);
+        }
+    }
 
-    private void Awake()
-	{
-		if(Instance == null)
-		{
-			Instance = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
-
-		DontDestroyOnLoad(gameObject);
-		
-	}
+   
 
     public void PlaySound(TypeSounds type)
 	{

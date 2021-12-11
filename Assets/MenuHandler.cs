@@ -10,12 +10,15 @@ public class MenuHandler : MonoBehaviour
 	[SerializeField] private TMP_Text _bestScoreBrainText;
 	[SerializeField] private TMP_Text _scoreMoneyText;
 
+	[SerializeField] private List<ProductHolder> _productsHolder;
+
 	private void Awake()
 	{
 		if (Instance == null)
 		{
 			Instance = this;
 		}
+
 
 		if (PlayerPrefs.HasKey("money"))
 		{
@@ -37,6 +40,26 @@ public class MenuHandler : MonoBehaviour
 			_bestScoreBrainText.text = "Рекорд: 0"; 
 		}
 	}
+
+	public void UnSelectedButton(ProductHolder product)
+    {
+		_productsHolder.ForEach(productTemp =>
+		{
+            if (productTemp.IsBuy)
+            {
+				if (product == productTemp)
+				{
+					productTemp.SelectedButton();
+				}
+				else
+				{
+					productTemp.UnSelectedButton();
+				}
+			}
+			
+		});
+	}
+
 	public void StartGame(string nameScene)
 	{
 		SceneManager.LoadScene(nameScene);
