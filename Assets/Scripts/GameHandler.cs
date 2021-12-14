@@ -59,6 +59,6 @@ public class GameHandler : MonoBehaviour
 	}
 	public void StartMenu()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(1);
 	}
 }

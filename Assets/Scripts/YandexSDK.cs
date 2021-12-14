@@ -59,6 +59,7 @@ public class YandexSDK : MonoBehaviour {
         else {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     /// <summary>

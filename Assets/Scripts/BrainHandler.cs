@@ -124,10 +124,11 @@ public class BrainHandler : MonoBehaviour
 
 	public void ReplayGame()
 	{
+		AdsController.Instance.ShowInterstitial();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 	public void ExitMune()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(1);
 	}
 }
