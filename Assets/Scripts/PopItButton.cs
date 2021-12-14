@@ -63,6 +63,7 @@ public class PopItButton : MonoBehaviour
 				_isPop = true;
 			}
 
+			AdsController.Instance.ShowInterstitial();
 			transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + 180, 1f);
 		}
 	}
