@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IColorablyBall
 {
-	public void SaveStartPosition();
-	public void DestroyBall();
-	public void ResetBall();
+	void SaveStartPosition();
+	void DestroyBall();
+	void ResetBall();
 }
