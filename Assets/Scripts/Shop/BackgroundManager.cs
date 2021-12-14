@@ -33,7 +33,7 @@ public class BackgroundManager : MonoBehaviour
 
     public Sprite GetBackground()
     {
-        return _product.Background;
+        return _product != null ? _product.Background : null;
     }
 
     public void SetProduct(Product product)

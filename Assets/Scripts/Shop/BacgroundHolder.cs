@@ -9,6 +9,11 @@ public class BacgroundHolder : MonoBehaviour
 
     private void Awake()
     {
-        _bacground.sprite = BackgroundManager.Instance.GetBackground();
+        var sprite = BackgroundManager.Instance.GetBackground();
+        if(sprite != null)
+		{
+            _bacground.sprite = sprite;
+        }
+       
     }
 }

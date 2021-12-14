@@ -13,17 +13,22 @@ public class Settings : MonoBehaviour
 
     private void OnEnable()
     {
-        if (PlayerPrefs.HasKey("sound"))
+        if (PlayerPrefs.HasKey("sound") && PlayerPrefs.HasKey("music"))
         {
-            _soundSlider.value = PlayerPrefs.GetFloat("sound");
+            _soundValue = _soundSlider.value = PlayerPrefs.GetFloat("sound");
+            _musicValue = _musicSlider.value = PlayerPrefs.GetFloat("music");
+        }
+		else
+		{
+            _soundValue = _soundSlider.value = 1;
+            _musicValue = _musicSlider.value = 1;
 
+            PlayerPrefs.SetFloat("sound", _soundValue);
+            PlayerPrefs.SetFloat("music", _musicValue);
         }
 
-        if (PlayerPrefs.HasKey("music"))
-        {
-            _musicSlider.value = PlayerPrefs.GetFloat("music");
-        }
         AudioHandler.Instance.ChangeSoundAndSound(_soundValue, _musicValue);
+
     }
 
     public void SoundChangeValue()
@@ -43,8 +48,6 @@ public class Settings : MonoBehaviour
         AudioHandler.Instance.PlaySound(TypeSounds.Tap);
         PlayerPrefs.SetFloat("sound", _soundValue);
         PlayerPrefs.SetFloat("music", _musicValue);
-
-        PlayerPrefs.Save();
 
         DestroyImmediate(gameObject);
     }
